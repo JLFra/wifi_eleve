@@ -33,4 +33,19 @@ namespace wifi {
             }
         }
     }
+    //% block="Envoi $donnee au système adresse IP $adresseIP_serveur"
+    //% group='Client'
+    //% donnee.defl='essai' adresseIP_serveur.defl="192.168.1.10"
+    export function envoi_donnee_serveur(donnee: string, adresseIP_serveur: string): void {
+        let reception = ""
+        let port = "2000"
+        serial.writeString("Connect_to_server,"+adresseIP_serveur+","+port)
+        reception = serial.readUntil(serial.delimiters(Delimiters.Hash))
+        if (reception == "connected_to_server") {
+            basic.showIcon(IconNames.Yes)
+            serial.writeString("Send_to_Server,"+donnee)
+        } else {
+            basic.showIcon(IconNames.Sad)
+        }
+    }
 }
