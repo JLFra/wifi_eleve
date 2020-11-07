@@ -1,6 +1,7 @@
 //% groups=['Commun', 'Client', 'Serveur']
 //% color="#037268" icon="\uf1eb"
 namespace wifi {
+    let port = '2000'
     //% block="Connexion au point d'accès SSID $SSID mot de passe $password adresse IP $adresse_IP "
     //% group='Commun'
     //% SSID.defl='SNT1' password.defl='12345678'
@@ -47,5 +48,20 @@ namespace wifi {
         } else {
             basic.showIcon(IconNames.Sad)
         }
+    }
+
+    //% block="Donnee reçue du client"
+    //% group='Serveur'
+    export function donnee_recue(): string {
+        serial.writeString("Start_Server,"+port)
+        serial.writeString("read_client_request")
+        return serial.readUntil(serial.delimiters(Delimiters.Hash));
+    }
+
+    //% block="Adresse IP client connecté"
+    //% group='Serveur'
+    export function IPaddress_client_connected(): string {
+        serial.writeString("IPaddress_client_connected?")
+        return serial.readString();
     }
 }
