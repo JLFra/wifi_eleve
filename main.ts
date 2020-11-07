@@ -17,7 +17,7 @@ namespace wifi {
         serial.writeString("connect_to_AP,"+SSID+","+password)
         basic.pause(2000)
         let reception = ""
-        while (reception = "") {
+        while (reception == "") {
             serial.writeString("connected_to_AP?")
             reception = serial.readUntil(serial.delimiters(Delimiters.Hash))
             if (reception == "connected_to_AP") { 
