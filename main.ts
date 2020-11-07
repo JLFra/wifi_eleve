@@ -13,7 +13,8 @@ namespace wifi {
         SerialPin.P0,
         BaudRate.BaudRate115200
         )
-        basic.pause(100)
+        basic.pause(2000)
+        basic.showIcon(IconNames.SmallHeart)
         serial.writeString("connect_to_AP,"+SSID+","+password)
         basic.pause(2000)
         let reception = ""
