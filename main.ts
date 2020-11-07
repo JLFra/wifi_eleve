@@ -3,10 +3,11 @@
 namespace wifi {
     //% block="Connexion au point d'accès SSID $SSID mot de passe $password adresse IP $adresse_IP "
     //% group='Commun'
-    //% SSID.defl='launay' password.defl='12345789'
+    //% SSID.defl='SNT1' password.defl='123456789'
     //% adresse_IP.defl='192.168.1.5'
     export function connect_AP_IP(SSID: string, password: string, adresse_IP: string): void {
         basic.showIcon(IconNames.Asleep)
+        basic.pause(2000)
         serial.setRxBufferSize(100)
         serial.redirect(
         SerialPin.P14,
@@ -14,7 +15,7 @@ namespace wifi {
         BaudRate.BaudRate115200
         )
         basic.pause(2000)
-        basic.showIcon(IconNames.SmallHeart)
+        basic.showIcon(IconNames.SmallSquare)
         serial.writeString("connect_to_AP,"+SSID+","+password)
         basic.pause(2000)
         let reception = ""
@@ -27,7 +28,7 @@ namespace wifi {
                 basic.showString("C")
             }
             else {
-                basic.showIcon(IconNames.Sad)
+                basic.showIcon(IconNames.Square)
                 basic.pause(2000)	
             }
         }
