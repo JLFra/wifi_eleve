@@ -56,13 +56,13 @@ namespace wifi {
         serial.writeString("Start_Server,"+port)
         basic.pause(2000)
         serial.writeString("read_client_request")
-        return serial.readString();
+        return serial.readUntil(serial.delimiters(Delimiters.Hash));
     }
 
     //% block="Adresse IP client connecté"
     //% group='Serveur'
     export function IPaddress_client_connected(): string {
         serial.writeString("IPaddress_client_connected?")
-        return serial.readString();
+        return serial.readUntil(serial.delimiters(Delimiters.Hash));
     }
 }
