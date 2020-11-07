@@ -3,7 +3,7 @@
 namespace wifi {
     //% block="Connexion au point d'accès SSID $SSID mot de passe $password adresse IP $adresse_IP "
     //% group='Commun'
-    //% SSID.defl='SNT1' password.defl='123456789'
+    //% SSID.defl='SNT1' password.defl='12345678'
     //% adresse_IP.defl='192.168.1.5'
     export function connect_AP_IP(SSID: string, password: string, adresse_IP: string): void {
         basic.showIcon(IconNames.Asleep)
