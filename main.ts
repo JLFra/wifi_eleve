@@ -4,7 +4,7 @@ namespace wifi {
     //% block="Connexion au point d'accès SSID $SSID mot de passe $password adresse IP $adresse_IP "
     //% group='Commun'
     //% SSID.defl='SNT1' password.defl='12345678'
-    //% adresse_IP.defl='192.168.1.5'
+    //% adresse_IP.defl='192.168.0.5'
     export function connect_AP_IP(SSID: string, password: string, adresse_IP: string): void {
         basic.showIcon(IconNames.Asleep)
         basic.pause(2000)
@@ -35,7 +35,7 @@ namespace wifi {
     }
     //% block="Envoi $donnee au système adresse IP $adresseIP_serveur"
     //% group='Client'
-    //% donnee.defl='essai' adresseIP_serveur.defl="192.168.1.10"
+    //% donnee.defl='essai' adresseIP_serveur.defl="192.168.0.101"
     export function envoi_donnee_serveur(donnee: string, adresseIP_serveur: string): void {
         let reception = ""
         let port = "2000"
