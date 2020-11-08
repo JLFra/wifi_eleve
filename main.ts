@@ -34,7 +34,7 @@ namespace wifi {
             }
         }
     }
-    //% block="Envoi $donnee au système adresse IP $adresseIP_serveur"
+    //% block="Envoi $donnee au serveur adresse IP $adresseIP_serveur"
     //% group='Client'
     //% donnee.defl='essai' adresseIP_serveur.defl="192.168.0.101"
     export function envoi_donnee_serveur(donnee: string, adresseIP_serveur: string): void {
@@ -71,5 +71,12 @@ namespace wifi {
     export function answer_server(): string {
         serial.writeString("answer_server")
         return serial.readUntil(serial.delimiters(Delimiters.Hash));
+    }
+
+    //% block="Envoi $reponse au client "
+    //% group='Serveur'
+    //% reponse.defl='reponse'
+    export function answer_client_request(reponse: string): void {
+        serial.writeString("answer_client_request,"+reponse)
     }
 }
