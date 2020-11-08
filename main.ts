@@ -65,4 +65,11 @@ namespace wifi {
         serial.writeString("IPaddress_client_connected?")
         return serial.readUntil(serial.delimiters(Delimiters.Hash));
     }
+
+    //% block="Donnee reçue du serveur"
+    //% group='Client'
+    export function answer_server(): string {
+        serial.writeString("answer_server")
+        return serial.readUntil(serial.delimiters(Delimiters.Hash));
+    }
 }
