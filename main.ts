@@ -25,9 +25,8 @@ namespace wifi {
             reception = serial.readUntil(serial.delimiters(Delimiters.Hash))
             if (reception == "connected_to_AP") { 
                 serial.writeString("set_IP_address_esp32,"+adresse_IP)
-                basic.pause(100)
-                basic.showString("C")
                 basic.pause(1000)
+                basic.showString("C")
             }
             else {
                 basic.showIcon(IconNames.Square)
