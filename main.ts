@@ -43,7 +43,7 @@ namespace wifi {
         serial.writeString("Connect_to_server,"+adresseIP_serveur+","+port)
         reception = serial.readUntil(serial.delimiters(Delimiters.Hash))
         if (reception == "connected_to_server") {
-            basic.showIcon(IconNames.Yes)
+            //basic.showIcon(IconNames.Yes)
             serial.writeString("Send_to_Server,"+donnee)
         } else {
             basic.showIcon(IconNames.Sad)
