@@ -53,7 +53,7 @@ namespace wifi {
     //% group='Serveur'
     export function donnee_recue(): string {
         serial.writeString("Start_Server,"+port)
-        basic.pause(2000)
+        basic.pause(1000)
         serial.writeString("read_client_request")
         return serial.readUntil(serial.delimiters(Delimiters.Hash));
     }
