@@ -10,7 +10,7 @@ namespace wifi {
         basic.showIcon(IconNames.Asleep)
         basic.pause(2000)
         serial.setRxBufferSize(100)
-        //serial.setTxBufferSize(100)
+        serial.setTxBufferSize(100)
         serial.redirect(
         SerialPin.P14,
         SerialPin.P0,
