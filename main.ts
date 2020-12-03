@@ -9,7 +9,7 @@ namespace wifi {
     export function connect_AP_IP(SSID: string, password: string, adresse_IP: string): void {
         basic.showIcon(IconNames.Asleep)
         basic.pause(2000)
-        //serial.setRxBufferSize(100)
+        serial.setRxBufferSize(100)
         //serial.setTxBufferSize(100)
         serial.redirect(
         SerialPin.P14,
