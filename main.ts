@@ -39,15 +39,8 @@ namespace wifi {
     //% group='Client'
     //% donnee.defl='essai' adresseIP_serveur.defl="192.168.0.101"
     export function envoi_donnee_serveur(donnee: string, adresseIP_serveur: string): void {
-        let reception = ""
         let port = "2000"
-        serial.writeString("Connect_to_server,"+adresseIP_serveur+","+port)
-        reception = serial.readUntil(serial.delimiters(Delimiters.Hash))
-        if (reception == "connected_to_server") {
-            serial.writeString("Send_to_Server,"+donnee)
-        } else {
-            basic.showIcon(IconNames.Sad)
-        }
+        serial.writeString("Connect_to_server,"+adresseIP_serveur+","+port+","+donnee)
     }
 
     //% block="Donnee reçue du client"
