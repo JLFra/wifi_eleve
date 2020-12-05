@@ -40,7 +40,7 @@ namespace wifi {
     //% donnee.defl='essai' adresseIP_serveur.defl="192.168.0.101"
     export function envoi_donnee_serveur(donnee: string, adresseIP_serveur: string): void {
         let port = "2000"
-        serial.writeString("Connect_to_server_send,"+adresseIP_serveur+","+port+","+donnee)
+        serial.writeString("Connect_server_send,"+adresseIP_serveur+","+port+","+donnee)
     }
 
     //% block="Donnee reçue du client"
