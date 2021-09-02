@@ -73,6 +73,6 @@ namespace wifi {
     //% group='Pages Web'
     //% texte.defl='mon texte'
     export function add_to_webpage(texte: string): void {
-        serial.writeString("pageweb," + texte)
+        serial.writeString("addtowebpage," + texte)
     }
 }
