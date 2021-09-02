@@ -1,5 +1,3 @@
-//% groups=['Commun', 'Client', 'Serveur']
-//% color="#037268" icon="\uf1eb"
 namespace wifi {
     let port = '2000'
     //% block="Connexion au point d'accès SSID $SSID mot de passe $password adresse IP $adresse_IP "
@@ -40,8 +38,8 @@ namespace wifi {
     //% group='Client'
     //% donnee.defl='essai' adresseIP_serveur.defl="192.168.0.101"
     export function envoi_donnee_serveur(donnee: string, adresseIP_serveur: string): void {
-        let port = "2000"
-        serial.writeString("Connect_server_send,"+adresseIP_serveur+","+port+","+donnee)
+        let port2 = "2000"
+        serial.writeString("Connect_server_send,"+adresseIP_serveur+","+port2+","+donnee)
     }
 
     //% block="Donnee reçue du client"
@@ -70,5 +68,11 @@ namespace wifi {
     //% reponse.defl='reponse'
     export function answer_client_request(reponse: string): void {
         serial.writeString("answer_client_request,"+reponse)
+    }
+    //% block="Ajouter dans pageWeb $texte"
+    //% group='Pages Web'
+    //% texte.defl='mon texte'
+    export function add_to_webpage(texte: string): void {
+        serial.writeString("pageweb," + texte)
     }
 }
