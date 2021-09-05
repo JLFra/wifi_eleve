@@ -75,4 +75,10 @@ namespace wifi {
     export function add_to_webpage(texte: string): void {
         serial.writeString("addtowebpage," + texte)
     }
+
+    //% block="Nouvelle pageWeb $texte"
+    //% group='Pages Web'
+    export function new_webpage(): void {
+        serial.writeString("newwebpage")
+    }
 }
