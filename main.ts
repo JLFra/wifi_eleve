@@ -70,15 +70,22 @@ namespace wifi {
         serial.writeString("answer_client_request,"+reponse)
     }
     //% block="Ajouter dans pageWeb $texte"
-    //% group='Pages Web'
+    //% group='Web'
     //% texte.defl='mon texte'
     export function add_to_webpage(texte: string): void {
         serial.writeString("addtowebpage," + texte)
     }
 
     //% block="Nouvelle pageWeb $texte"
-    //% group='Pages Web'
+    //% group='Web'
     export function new_webpage(): void {
         serial.writeString("newwebpage")
+    }
+
+    //% block="commande URL reçue"
+    //% group='Web'
+    export function url_request(): string {
+        serial.writeString("request_webpage")
+        return serial.readUntil(serial.delimiters(Delimiters.Hash));
     }
 }
